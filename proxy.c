@@ -72,11 +72,11 @@ void *doit(void *vargp){
 	return NULL;
   }
 
-  //printf("%s %s %d\n", host, path, port);
+  //printf("parse result : %s %s %d\n", host, path, port);
   char newbuf[MAXBUF];
   char t_line[MAXLINE];
 
-  strncpy(t_line,"",0);
+  strcpy(t_line,"");
   //start
 
   strcat(t_line,"GET ");                                       
@@ -84,8 +84,8 @@ void *doit(void *vargp){
   strcat(t_line," HTTP/1.0\r\n"); 
 
   //strcat(t_line,buf);
-  //Rio_readlineb(&rio,newbuf,MAXBUF);
- 
+  Rio_readlineb(&rio,newbuf,MAXBUF); 
+
   while(strcmp(newbuf,"\r\n")){
  /*	
 	if(!strstr(newbuf,"Connection")){
